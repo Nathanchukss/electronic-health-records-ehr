@@ -1,73 +1,94 @@
-# Welcome to your Lovable project
+# MedRecord - Healthcare Patient Management System
 
-## Project info
+A secure, full-stack healthcare patient management system built for medical staff to manage patient records, track medical history, and maintain comprehensive audit logs.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Overview
 
-## How can I edit this code?
+MedRecord is designed for healthcare facilities to streamline patient data management with role-based access control, ensuring that sensitive medical information is only accessible to authorized personnel.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Patient Registry** - Create, view, edit, and search patient records with comprehensive demographic information
+- **Medical Records Tracking** - Document diagnoses, treatments, medications, and provider notes
+- **Role-Based Access Control** - Three distinct roles (Admin, Doctor, Nurse) with appropriate permissions
+- **Audit Logging** - Complete activity tracking for compliance and security (admin-only access)
+- **Staff Management** - Manage healthcare staff accounts and role assignments
+- **Secure Authentication** - Email/password authentication with automatic email confirmation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+### Frontend
+- **React 18** - UI library
+- **TypeScript** - Type-safe development
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - Accessible component library
+- **React Router** - Client-side routing
+- **TanStack Query** - Server state management
+- **React Hook Form + Zod** - Form handling and validation
+- **Lucide React** - Icon library
 
-**Use your preferred IDE**
+### Backend (Lovable Cloud / Supabase)
+- **PostgreSQL** - Relational database
+- **Row-Level Security (RLS)** - Fine-grained data access control
+- **Supabase Auth** - Authentication and user management
+- **Edge Functions** - Serverless backend logic
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Database Schema
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| Table | Description |
+|-------|-------------|
+| `profiles` | Staff user profiles linked to auth users |
+| `user_roles` | Role assignments (admin, doctor, nurse) |
+| `patients` | Patient demographics and contact information |
+| `medical_records` | Patient medical history and clinical notes |
+| `audit_logs` | System activity tracking for compliance |
 
-Follow these steps:
+## User Roles & Permissions
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+| Action | Admin | Doctor | Nurse |
+|--------|-------|--------|-------|
+| View Patients | ✓ | ✓ | ✓ |
+| Create Patients | ✓ | ✓ | ✓ |
+| Update Patients | ✓ | ✓ | ✓ |
+| Delete Patients | ✓ | ✗ | ✗ |
+| View Medical Records | ✓ | ✓ | ✓ |
+| Create Medical Records | ✓ | ✓ | ✓ |
+| Update Medical Records | ✓ | ✓ | ✗ |
+| Delete Medical Records | ✓ | ✗ | ✗ |
+| View Audit Logs | ✓ | ✗ | ✗ |
+| Manage Staff | ✓ | ✗ | ✗ |
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm
+
+### Local Development
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Security
 
-**Use GitHub Codespaces**
+- All database tables are protected with Row-Level Security (RLS) policies
+- Authentication required for all data access
+- Audit logging tracks all significant user actions
+- Role-based permissions enforced at database level
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## License
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Private - All rights reserved

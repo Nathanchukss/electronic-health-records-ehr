@@ -57,13 +57,19 @@ interface Patient {
   created_at: string;
 }
 
+interface ProfileInfo {
+  id: string;
+  full_name: string;
+}
+
 interface MedicalRecord {
   id: string;
   record_type: string;
   title: string;
   description: string | null;
   recorded_at: string;
-  profiles: { full_name: string } | null;
+  recorded_by: string | null;
+  profiles: ProfileInfo | null;
 }
 
 export default function PatientDetail() {
@@ -96,16 +102,30 @@ export default function PatientDetail() {
         .eq("patient_id", id)
         .order("recorded_at", { ascending: false });
       
-      const recorderIds = [...new Set(recordsResult.data?.map((r) => r.recorded_by).filter(Boolean) || [])];
-      const { data: profilesData } = recorderIds.length > 0 
-        ? await supabase.from("profiles").select("id, full_name").in("id", recorderIds)
-        : { data: [] };
+      const recorderIds = [...new Set(recordsResult.data?.map((r) => r.recorded_by).filter(Boolean) || [])] as string[];
+      let profilesMap = new Map<string, ProfileInfo>();
       
-      const profilesMap = new Map(profilesData?.map((p) => [p.id, p]) || []);
-      const recordsWithProfiles = (recordsResult.data || []).map((r) => ({
-        ...r,
+      if (recorderIds.length > 0) {
+        const { data: profilesData } = await supabase
+          .from("profiles")
+          .select("id, full_name")
+          .in("id", recorderIds);
+        
+        if (profilesData) {
+          profilesMap = new Map(profilesData.map((p) => [p.id, p as ProfileInfo]));
+        }
+      }
+      
+      const recordsWithProfiles: MedicalRecord[] = (recordsResult.data || []).map((r) => ({
+        id: r.id,
+        record_type: r.record_type,
+        title: r.title,
+        description: r.description,
+        recorded_at: r.recorded_at,
+        recorded_by: r.recorded_by,
         profiles: r.recorded_by ? profilesMap.get(r.recorded_by) || null : null,
       }));
+      
       setPatient(patientResult.data);
       setRecords(recordsWithProfiles);
 

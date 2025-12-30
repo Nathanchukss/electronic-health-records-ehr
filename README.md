@@ -4,7 +4,7 @@ A secure, full-stack healthcare patient management system built for medical staf
 
 ## 🌐 Live Website
 
-Visit the live portfolio: [View Portfolio](https://pixel-perfect-clone-2542.lovable.app)
+Visit the live portfolio: [View Portfolio](https://medrecord-ehr.lovable.app)
 ## Overview
 
 MedRecord is designed for healthcare facilities to streamline patient data management with role-based access control, ensuring that sensitive medical information is only accessible to authorized personnel.

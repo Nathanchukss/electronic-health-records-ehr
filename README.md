@@ -95,20 +95,20 @@ The app will be available at `http://localhost:5173`
 
 ## Sample Accounts
 
-Admin Account
-Full name: Admin Guest   
-email: adminguest@emory.com 
-password: Adminguest1
+**Admin Account**  
+Full name: Admin Guest  
+Email: adminguest@emory.com  
+Password: Adminguest1
 
-Doctor Account
-Full name: Doctor Guest
-email: doctorguest@emory.com
-password: Doctorguest1
+**Doctor Account**  
+Full name: Doctor Guest  
+Email: doctorguest@emory.com  
+Password: Doctorguest1
 
-Nurse Account
-Full name:  Nurse Guest
-email: nurseguest@emory.com
-password: Nurseguest1
+**Nurse Account**  
+Full name: Nurse Guest  
+Email: nurseguest@emory.com  
+Password: Nurseguest1
 
 
 ## 📄 License

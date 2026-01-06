@@ -93,6 +93,9 @@ The app will be available at `http://localhost:5173`
 - Audit logging tracks all significant user actions
 - Role-based permissions enforced at database level
 
+## Sample Accounts
+
+
 ## License
 
 Private - All rights reserved

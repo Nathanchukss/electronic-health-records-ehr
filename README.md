@@ -94,11 +94,6 @@ The app will be available at `http://localhost:5173`
 - Role-based permissions enforced at database level
 
 ## Sample Accounts
-Admin Account<br>
-Full name: Admin Guest<br>
-Email: adminguest@emory.com<br>
-Password: Adminguest1<br>
-<br>
 Doctor Account<br>
 Full name: Doctor Guest<br>
 Email: doctorguest@emory.com<br>

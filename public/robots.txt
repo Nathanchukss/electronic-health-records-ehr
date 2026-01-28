@@ -12,3 +12,10 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /dashboard
+Disallow: /patients
+Disallow: /staff
+Disallow: /audit-logs
+
+# Sitemap
+Sitemap: https://medrecord-ehr.lovable.app/sitemap.xml

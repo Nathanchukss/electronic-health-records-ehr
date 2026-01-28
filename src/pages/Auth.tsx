@@ -128,6 +128,31 @@ export default function Auth() {
             
             <TabsContent value="login">
               <form onSubmit={handleLogin} className="space-y-4">
+                {/* Demo Account Quick Login */}
+                <div className="rounded-lg border bg-muted/50 p-3 space-y-2">
+                  <p className="text-xs font-medium text-muted-foreground">Demo Accounts (click to fill)</p>
+                  <div className="flex gap-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 text-xs"
+                      onClick={() => setLoginForm({ email: "doctorguest@emory.com", password: "Doctorguest1" })}
+                    >
+                      Doctor Guest
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 text-xs"
+                      onClick={() => setLoginForm({ email: "nurseguest@emory.com", password: "Nurseguest1" })}
+                    >
+                      Nurse Guest
+                    </Button>
+                  </div>
+                </div>
+
                 <div className="space-y-2">
                   <Label htmlFor="login-email">Email</Label>
                   <Input

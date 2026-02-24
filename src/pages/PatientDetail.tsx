@@ -5,6 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useAuditLog } from "@/hooks/useAuditLog";
 import AppLayout from "@/components/layout/AppLayout";
 import MedicalRecordForm from "@/components/patients/MedicalRecordForm";
+import PatientAssignments from "@/components/patients/PatientAssignments";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -357,6 +358,8 @@ export default function PatientDetail() {
                 </CardContent>
               </Card>
             )}
+
+            <PatientAssignments patientId={patient.id} />
           </div>
 
           {/* Medical Records */}
